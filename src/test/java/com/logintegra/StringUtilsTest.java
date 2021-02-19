@@ -34,4 +34,28 @@ class StringUtilsTest {
         String s = stringUtils.getFirstLetter(null);
         assertEquals(s, "");
     }
+
+    @Test
+    @DisplayName("Metoda 'getLastLetter' zwraca ostatnią literę podanego słowa")
+    void getLastLetter_returns_last_letter(){
+        String s = stringUtils.getLastLetter("Marcin");
+        assertEquals("n", s);
+
+        assertAll("names",
+                () -> assertEquals(stringUtils.getLastLetter("Baltazar Gąbka"), "a" ),
+                () -> assertEquals(stringUtils.getLastLetter("BRUCE LEE"), "E" ),
+                () -> assertEquals(stringUtils.getLastLetter("NanA"), "A" ));
+    }
+
+    @Test
+    void getLastLetter_returns_empty_string_when_given_empty_string() {
+        String s = stringUtils.getLastLetter("");
+        assertEquals(s, "");
+    }
+
+    @Test
+    void getLastLetter_returns_empty_string_when_given_null() {
+        String s = stringUtils.getLastLetter(null);
+        assertEquals(s, "");
+    }
 }
